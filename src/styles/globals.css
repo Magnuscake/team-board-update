@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "VT323", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-image: url("/Backgrounds/texture-grass.png");
+  background-repeat: repeat;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* .revenue-table thead { */
+/*   @apply border-b-2; */
+/* } */
+
+.revenue-table thead tr th {
+  @apply py-3 px-2 font-light border-b-2 border-[#b0b0b0];
+}
+
+.revenue-table thead tr th:first-child {
+  @apply text-left;
+}
+
+.revenue-table thead tr th:not(:first-child) {
+  @apply text-right;
+}
+
+.revenue-table .revenue-rows {
+  @apply border-[#b0b0b0] border-b;
+}
+
+.revenue-table .revenue-rows td:not(:first-child) {
+  @apply text-right px-12;
+}
+
+.revenue-table .revenue-rows > * {
+  @apply py-3;
+}

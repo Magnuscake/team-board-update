@@ -1,0 +1,72 @@
+import { Rectangle } from "pixi.js";
+
+export type Industries = "Team 1" | "Team 2" | "Team 3" | "Team 4" | "Team 5";
+
+export interface MascotAttribute {
+  mascot: string;
+  industry: Industries;
+  image: string;
+  rectColor: string;
+  rectBorder: string;
+  headshot?: string;
+}
+
+export interface Revenue {
+  revenueGuide: number;
+  workSold: number;
+}
+
+export interface DBData extends Revenue {
+  _id: string;
+  industry: Industries;
+  lastModified: Date;
+}
+
+export interface RevenueData extends MascotAttribute {
+  revenue: Revenue;
+}
+
+export type RevenueStatus = "quarter" | "fullyear";
+
+export interface RevenueStatusStore {
+  revenueType: RevenueStatus;
+  setRevenueType: (type: RevenueStatus) => void;
+}
+
+export interface RacingStore {
+  isPaused: boolean;
+  setIsPaused: (bool: boolean) => void;
+  racingStatus: {
+    [key in Industries]: boolean;
+  };
+  setIsFinishedRacing: (industry: Industries) => void;
+  getIsFinishedRacing: () => boolean;
+  startRacing: () => void;
+}
+
+export interface ContainerStore {
+  containerBounds: Rectangle | {};
+  setContainerBounds: (arg0: Rectangle) => void;
+}
+
+export interface RevenueDataStore {
+  revenueData: MascotAttribute;
+  setRevenueData: () => MascotAttribute & RevenueData;
+}
+
+export interface SoundStore {
+  raceAudio: HTMLAudioElement | undefined;
+  victoryAudio: HTMLAudioElement | undefined;
+  isMute: boolean;
+  playRaceAudio: () => void;
+  playVictoryAudio: () => void;
+  pauseRaceAudio: () => void;
+  pauseVictoryAudio: () => void;
+  setIsMute: () => void;
+}
+
+export interface ConfettiStore {
+  confettiIsRunning: boolean;
+  launchConfetti: () => void;
+  resetConfetti: () => void;
+}
